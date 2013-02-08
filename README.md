@@ -31,7 +31,7 @@ given client functions and be adaptable.
 
 Gameplay
 --------
-The game type and style is that of a real-time strategy game (RTS)
+The game type and style is that of a turn-based strategy game
 visualized in a top-down view. The goal of each AI player is to
 destroy the other player's base. The first player's base is located
 in the top-left corner of the map, 5 squares from the top, 5 squares
