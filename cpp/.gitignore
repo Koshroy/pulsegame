@@ -1,0 +1,14 @@
+# standard C++ ignores
+client
+*.o
+tags
+
+# Thrift auto-generated
+Game.cpp
+Game.h
+Game_server.skeleton.cpp
+game_constants.cpp
+game_constants.h
+game_types.cpp
+game_types.h
+tags
