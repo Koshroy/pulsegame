@@ -1,0 +1,33 @@
+{
+  "map": {
+    "base": {
+      "PosMargin": 5,
+      "SpawnRadius": 2
+    },
+    "filename": "map.txt"
+  },
+  "units": {
+    "base": {
+      "StartHealth": 500
+    },
+    "Cost": 6,
+    "StartHealth": 20,
+    "AttackDamage": 7,
+    "AttackRange": 1,
+    "Movement": 2
+  },
+  "economy": {
+    "InitialGold": 60,
+    "GoldPerTurn": 1
+  },
+  "timing": {
+    "TurnDeadline": 1000,
+    "LivenessDeadline": 5000
+  },
+  "weather": "simple",
+  "queue": {
+    "MaxLen": 64,
+    "CheckWeatherUsage": 32
+  },
+  "TurnLimit": 200
+}

@@ -28,5 +28,6 @@
   "queue": {
     "MaxLen": 64,
     "CheckWeatherUsage": 32
-  }
+  },
+  "TurnLimit": 200
 }
