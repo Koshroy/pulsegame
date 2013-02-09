@@ -315,4 +315,9 @@ service Game {
 		For development, useful to end game early rather than wait for timeout.
 	*/
 	void surrender(1: Token tok);
+
+	/**
+		For the proxy server's purpose
+	*/
+	void setRemote(1: string host, 2: string port);
 }

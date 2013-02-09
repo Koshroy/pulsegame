@@ -20,6 +20,7 @@ class GameIf {
   virtual bool op(const Op& operation, const Token tok) = 0;
   virtual void endTurn(State& _return, const Token tok) = 0;
   virtual void surrender(const Token tok) = 0;
+  virtual void setRemote(const std::string& host, const std::string& port) = 0;
 };
 
 class GameIfFactory {
@@ -63,6 +64,9 @@ class GameNull : virtual public GameIf {
     return;
   }
   void surrender(const Token /* tok */) {
+    return;
+  }
+  void setRemote(const std::string& /* host */, const std::string& /* port */) {
     return;
   }
 };
@@ -585,6 +589,103 @@ class Game_surrender_presult {
 
 };
 
+typedef struct _Game_setRemote_args__isset {
+  _Game_setRemote_args__isset() : host(false), port(false) {}
+  bool host;
+  bool port;
+} _Game_setRemote_args__isset;
+
+class Game_setRemote_args {
+ public:
+
+  Game_setRemote_args() : host(), port() {
+  }
+
+  virtual ~Game_setRemote_args() throw() {}
+
+  std::string host;
+  std::string port;
+
+  _Game_setRemote_args__isset __isset;
+
+  void __set_host(const std::string& val) {
+    host = val;
+  }
+
+  void __set_port(const std::string& val) {
+    port = val;
+  }
+
+  bool operator == (const Game_setRemote_args & rhs) const
+  {
+    if (!(host == rhs.host))
+      return false;
+    if (!(port == rhs.port))
+      return false;
+    return true;
+  }
+  bool operator != (const Game_setRemote_args &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Game_setRemote_args & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class Game_setRemote_pargs {
+ public:
+
+
+  virtual ~Game_setRemote_pargs() throw() {}
+
+  const std::string* host;
+  const std::string* port;
+
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class Game_setRemote_result {
+ public:
+
+  Game_setRemote_result() {
+  }
+
+  virtual ~Game_setRemote_result() throw() {}
+
+
+  bool operator == (const Game_setRemote_result & /* rhs */) const
+  {
+    return true;
+  }
+  bool operator != (const Game_setRemote_result &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const Game_setRemote_result & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class Game_setRemote_presult {
+ public:
+
+
+  virtual ~Game_setRemote_presult() throw() {}
+
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+
+};
+
 class GameClient : virtual public GameIf {
  public:
   GameClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) :
@@ -620,6 +721,9 @@ class GameClient : virtual public GameIf {
   void surrender(const Token tok);
   void send_surrender(const Token tok);
   void recv_surrender();
+  void setRemote(const std::string& host, const std::string& port);
+  void send_setRemote(const std::string& host, const std::string& port);
+  void recv_setRemote();
  protected:
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> piprot_;
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> poprot_;
@@ -640,6 +744,7 @@ class GameProcessor : public ::apache::thrift::TDispatchProcessor {
   void process_op(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_endTurn(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_surrender(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_setRemote(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
  public:
   GameProcessor(boost::shared_ptr<GameIf> iface) :
     iface_(iface) {
@@ -648,6 +753,7 @@ class GameProcessor : public ::apache::thrift::TDispatchProcessor {
     processMap_["op"] = &GameProcessor::process_op;
     processMap_["endTurn"] = &GameProcessor::process_endTurn;
     processMap_["surrender"] = &GameProcessor::process_surrender;
+    processMap_["setRemote"] = &GameProcessor::process_setRemote;
   }
 
   virtual ~GameProcessor() {}
@@ -721,6 +827,15 @@ class GameMultiface : virtual public GameIf {
       ifaces_[i]->surrender(tok);
     }
     ifaces_[i]->surrender(tok);
+  }
+
+  void setRemote(const std::string& host, const std::string& port) {
+    size_t sz = ifaces_.size();
+    size_t i = 0;
+    for (; i < (sz - 1); ++i) {
+      ifaces_[i]->setRemote(host, port);
+    }
+    ifaces_[i]->setRemote(host, port);
   }
 
 };
