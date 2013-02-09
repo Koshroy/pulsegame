@@ -1,0 +1,4 @@
+.container{width:100%;}
+.left{float:left;width:500px;}
+.right{float:right;width:500px;}
+.center{margin:0 auto;width:500px;}

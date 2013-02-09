@@ -1,0 +1,41 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="viz.css">
+  <title>Vizualizer</title>
+</head>
+
+<body>
+
+  <p>Frame Num: <span id="frameNum">0</span></p>
+<div class="container">
+  <div class="left" id="stats1Div">
+    <p>Player 1 Gold: <span id="p1Gold">0</span></p>
+    <p>Player 1 Gold: <span id="p1Vops">0</span></p>
+    <p>Player 1 Gold: <span id="p1Iops">0</span></p>
+  </div>
+
+<div class="right" id="stats2Div">
+  <p>Player 2 Gold: <span id="p2Gold">0</span></p>
+  <p>Player 2 Gold: <span id="p2Vops">0</span></p>
+  <p>Player 2 Gold: <span id="p2Iops">0</span></p>
+  </div>
+
+
+  <div class="middle">
+    <canvas id="summonersRift" width="1000" height="1000" tabindex="1"></canvas>
+
+  </div>
+</div>
+
+
+  <div>
+    <button id="prevBut">Prev</button>
+    <button id="nextBut">Next</button>
+  </div>
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="viz.js"></script>
+</body>
+
+</html>
