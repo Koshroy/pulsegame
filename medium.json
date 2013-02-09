@@ -10,19 +10,19 @@
     "base": {
       "StartHealth": 500
     },
-    "Cost": 1,
+    "Cost": 6,
     "StartHealth": 20,
     "AttackDamage": 7,
     "AttackRange": 1,
     "Movement": 2
   },
   "economy": {
-    "InitialGold": 30,
-    "GoldPerTurn": 2
+    "InitialGold": 60,
+    "GoldPerTurn": 1
   },
   "timing": {
-    "TurnDeadline": 60000,
-    "LivenessDeadline": 60000
+    "TurnDeadline": 1000,
+    "LivenessDeadline": 5000
   },
   "weather": "simple",
   "queue": {

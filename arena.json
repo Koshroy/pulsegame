@@ -1,0 +1,19 @@
+{
+	"default": {
+		"host": "localhost",
+		"port": 8090
+	},
+	"easy": {
+		"host": "ec2-23-23-68-234.compute-1.amazonaws.com",
+		"port": 8090
+	},
+	"medium": {
+		"host": "ec2-23-23-68-234.compute-1.amazonaws.com",
+		"port": 8091
+	},
+	"hard": {
+		"host": "ec2-23-23-68-234.compute-1.amazonaws.com",
+		"port": 8092
+	},
+	"name": "me"
+}
