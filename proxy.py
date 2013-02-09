@@ -11,6 +11,8 @@ from gen_py.game import Game
 class GameHandler:
 	def __init__(self):
 		self.client = None
+		self.host = None
+		self.port = None
 
 	def log(self, logline, tok):
 		self.client.log(logline, tok)
@@ -27,16 +29,18 @@ class GameHandler:
 	def surrender(self, tok):
 		self.client.surrender(tok)
 	
+	# once remote is set, does not change
 	def setRemote(self, host, port):
-		if self.client is not None:
-			self.client = None
-			self._transport.close()
-		socket = TSocket.TSocket(host, int(port))
-		transport = TTransport.TFramedTransport(socket)
-		protocol = TBinaryProtocol.TBinaryProtocol(transport)
-		self.client = Game.Client(protocol)
-		self._transport = transport
-		transport.open()
+		# if the host has changed, then do this
+		if host != self.host or port != self.port:
+			self.host = host
+			self.port = port
+			socket = TSocket.TSocket(host, int(port))
+			transport = TTransport.TFramedTransport(socket)
+			protocol = TBinaryProtocol.TBinaryProtocol(transport)
+			self.client = Game.Client(protocol)
+			self._transport = transport
+			transport.open()
 	
 handler = GameHandler()
 processor = Game.Processor(handler)
