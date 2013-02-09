@@ -2,12 +2,27 @@
 
 #include <limits.h>
 
+// helper function to construct positions
+Pos pos(int y, int x);
+// signup function - returns +1, 0, or -1
+int sgn(int a);
+
 Pos pos(int y, int x) {
 	Pos p;
 	p.y = y;
 	p.x = x;
 	return p;
 }
+
+int sgn(int a) {
+	if (a > 0) {
+		return 1;
+	} else if (a < 0) {
+		return -1;
+	}
+	return 0;
+}
+
 
 Client::Client(string host, string port, string name) :
 	host(host), port(port), name(name) {
@@ -32,22 +47,12 @@ Op Client::purchaseOrder() {
 	op.type = OpType::BUY;
 	BuyOp buy;
 	buy.type = bestType();
-	if (game.pid == 0) {
-		buy.startPos = pos(6,6);
-	} else {
-		buy.startPos = pos(game.gameMap.width - 6, game.gameMap.height - 6);;
-	}
+	buy.startPos = myBase().pos;
+	Pos other(enemyBase().pos);
+	buy.startPos.x += sgn(other.x - buy.startPos.x);
+	buy.startPos.y += sgn(other.y - buy.startPos.y);
 	op.buy = buy;
 	return op;
-}
-
-int sgn(int a) {
-	if (a > 0) {
-		return 1;
-	} else if (a < 0) {
-		return -1;
-	}
-	return 0;
 }
 
 // Probabilistically check the weather.

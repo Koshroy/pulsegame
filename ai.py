@@ -62,10 +62,12 @@ class SimpleAI:
 
 	# decisions
 	def unitPlace(self):
-		if self.pid == 0:
-			return Pos(6,6)
-		else:
-			return Pos(self.m.height - 6, self.m.width - 6)
+		base = self.myBase()
+		enemy = self.enemyBase()
+		pos = Pos(x=base.pos.x, y=base.pos.y)
+		pos.x += sgn(enemy.pos.x - base.pos.x)
+		pos.y += sgn(enemy.pos.y - base.pos.y)
+		return pos
 	def buy(self):
 		where = self.unitPlace()
 		return Op(type=OpType.BUY, buy=BuyOp(type=self.bestUnit(), startPos=where))

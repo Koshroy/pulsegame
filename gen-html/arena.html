@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<title>Thrift module: arena</title></head><body>
+<h1>Thrift module: arena</h1>
+<table><tr><th>Module</th><th>Services</th><th>Data types</th><th>Constants</th></tr>
+<tr>
+<td>arena</td><td><a href="arena.html#Svc_Arena">Arena</a><br/>
+<ul>
+<li><a href="arena.html#Fn_Arena_getMatch">getMatch</a></li>
+</ul>
+</td>
+<td><a href="arena.html#Struct_Match">Match</a><br/>
+<a href="arena.html#Enum__unused">_unused</a><br/>
+</td>
+<td><code></code></td>
+</tr></table>
+<hr/><h2 id="Enumerations">Enumerations</h2>
+<div class="definition"><h3 id="Enum__unused">Enumeration: _unused</h3>
+	This is just to deal with a bug in the go-thrift generator where import "fmt"
+is included regardless of whether or not it's needed.
+<br/><br/><table>
+</table></div>
+<hr/><h2 id="Structs">Data structures</h2>
+<div class="definition"><h3 id="Struct_Match">Struct: Match</h3>
+<table><tr><th>Key</th><th>Field</th><th>Type</th><th>Description</th><th>Requiredness</th><th>Default value</th></tr>
+<tr><td>1</td><td>host</td><td><code>string</code></td><td></td><td>optional</td><td></td></tr>
+<tr><td>2</td><td>port</td><td><code>string</code></td><td></td><td>optional</td><td></td></tr>
+<tr><td>3</td><td>opponent</td><td><code>string</code></td><td></td><td>optional</td><td></td></tr>
+</table><br/></div><hr/><h2 id="Services">Services</h2>
+<h3 id="Svc_Arena">Service: Arena</h3>
+<div class="definition"><h4 id="Fn_Arena_getMatch">Function: Arena.getMatch</h4>
+<pre><code><a href="arena.html#Struct_Match">Match</a></code> getMatch(<code>string</code> identity)
+</pre></div></body></html>
