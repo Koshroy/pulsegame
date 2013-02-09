@@ -67,6 +67,10 @@ per-turn. Units *cannot* move across an ocean square. All units cost the same
 amount to purchase per turn. There is *no* concept of range in the game. 
 Units can only attack units that are located in adjacent squares.
 
+*Despite the unit description mentioning range there will be no concept of range
+in the competition. Range is only something we're using in our lore and its mostly
+something for your imagination*
+
 Operations
 ----------
 AI players can perform four types of "operations" or actions in the game. The
@@ -153,6 +157,20 @@ Local Testing
 To further facilitate player testing, each player will be allowed to locally run a copy
 of the server. The server code we distribute will not keep track of stats and will come
 with a configuration file that exposes tweakable settings such as weather patterns. Note that you may construct whatever conditions you like locally, but have no control over the arena configurations.
+
+Rankings
+--------
+The ranking is based on your client's match history in the Arena servers. 
+We will have 3 Arenas up, an Easy Arena, a Medium Arena, and a Hard Arena. 
+Based on your performance Arena, we will place you in the Software I, II, or III bracket. 
+You must play games in the Arena you wish to compete in to compete in that particular bracket. 
+Note that we will be analyzing the Arena standings by hand. If you initially competed several 
+times in the Medium Arena but later moved to the Hard arena where your performance was okay, we 
+will consider you to be entered into the Software III bracket.
+
+The two GPUs will go out to the top 2 winners of the Software III or Hard bracket, there is no 
+distinction between Software III.1 and Software III.2. Make sure to compete in the Arena corresponding 
+to the bracket that contains the prize you wish to compete for.
 
 
 FAQ
