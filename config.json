@@ -21,8 +21,8 @@
     "GoldPerTurn": 2
   },
   "timing": {
-    "TurnDeadline": 60000,
-    "LivenessDeadline": 60000
+    "TurnDeadline": 0,
+    "LivenessDeadline": 0
   },
   "weather": "simple",
   "queue": {

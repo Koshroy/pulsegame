@@ -4,11 +4,11 @@
       "PosMargin": 5,
       "SpawnRadius": 2
     },
-    "filename": "map.txt"
+    "filename": "map_m_waterworks.txt"
   },
   "units": {
     "base": {
-      "StartHealth": 500
+      "StartHealth": 250
     },
     "Cost": 6,
     "StartHealth": 20,
@@ -18,16 +18,16 @@
   },
   "economy": {
     "InitialGold": 60,
-    "GoldPerTurn": 1
+    "GoldPerTurn": 3
   },
   "timing": {
-    "TurnDeadline": 1000,
-    "LivenessDeadline": 5000
+    "TurnDeadline": 2000,
+    "LivenessDeadline": 10000
   },
-  "weather": "simple",
+  "weather": "intermediate",
   "queue": {
     "MaxLen": 64,
     "CheckWeatherUsage": 32
   },
-  "TurnLimit": 200
+  "TurnLimit": 500
 }
